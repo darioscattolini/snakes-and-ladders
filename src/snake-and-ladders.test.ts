@@ -18,5 +18,16 @@ describe('Snake and Ladders', () => {
 
       expect(game.getTokenPosition(0)).toBe(1 + squaresToMove)
     });
+
+    test('Token moves twice the specified amount of squares', () => {
+      const firstMovementSpaces = 3;
+      const secondMovementSpaces = 4;
+      
+      game.moveToken(0, firstMovementSpaces)
+      game.moveToken(0, secondMovementSpaces)
+
+      expect(game.getTokenPosition(0))
+        .toBe(1 + firstMovementSpaces + secondMovementSpaces)
+    });
   });
 });
