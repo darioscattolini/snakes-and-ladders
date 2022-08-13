@@ -22,6 +22,13 @@ export class SnakeAndLadders {
     return token ? token.player : -1;
   }
 
+  public moveTokenOf(player: number) {
+    if (!this.currentDiceRoll) throw new Error('Roll dice before moving.');
+    
+    const token = this.getToken(player);
+    token.move(this.currentDiceRoll);
+  }
+
   public rollDice() {
     this._currentDiceRoll = Math.ceil(Math.random() * 6);
   }
