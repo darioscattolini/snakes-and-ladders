@@ -58,4 +58,16 @@ describe('Snake and Ladders', () => {
       expect(game.getTokenPosition(0)).toBe(previousPosition);
     });
   });
+
+  describe('Dice rolls', () => {
+    test('Dice roll returns result included in 1-6', () => {
+      const rolls: number[] = [];
+      
+      while (rolls.length < 100) {
+        rolls.push(game.rollDice());
+      }
+
+      expect(rolls).toSatisfyAll(roll => roll >= 1 && roll <= 6);
+    });
+  });
 });
