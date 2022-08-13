@@ -1,16 +1,20 @@
-export class SnakeAndLadders {
-  private tokens = [1];
+import { Token } from "./token";
 
-  public getTokenPosition(player: number): number {
-    return this.tokens[player];
+export class SnakeAndLadders {
+  private tokens = [new Token(1)];
+
+  public getToken(player: number): Token {
+    const token = this.tokens.find(token => token.player === player);
+    
+    if (!token) throw new Error("There is no player with number " + player);
+
+    return token;
   }
 
   public getWinner(): number {
-    return this.tokens.findIndex(position => position === 100);
-  }
+    const token = this.tokens.find(token => token.position === 100);
 
-  public moveToken(player: number, spaces: number) {
-    if (this.tokens[player] + spaces <= 100) this.tokens[player] += spaces;
+    return token ? token.player : -1;
   }
 
   public rollDice(): number {
