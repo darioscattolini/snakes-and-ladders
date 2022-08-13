@@ -42,7 +42,8 @@ describe('Snake and Ladders', () => {
       const rolls: number[] = [];
       
       while (rolls.length < 100) {
-        rolls.push(game.rollDice());
+        game.rollDice();
+        if (game.currentDiceRoll) rolls.push(game.currentDiceRoll);
       }
 
       expect(rolls).toSatisfyAll(roll => roll >= 1 && roll <= 6);

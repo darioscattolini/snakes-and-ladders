@@ -2,6 +2,11 @@ import { Token } from "./token";
 
 export class SnakeAndLadders {
   private tokens = [new Token(1)];
+  
+  public get currentDiceRoll() {
+    return this._currentDiceRoll;
+  }
+  private _currentDiceRoll: number | null = null;
 
   public getToken(player: number): Token {
     const token = this.tokens.find(token => token.player === player);
@@ -17,7 +22,7 @@ export class SnakeAndLadders {
     return token ? token.player : -1;
   }
 
-  public rollDice(): number {
-    return Math.ceil(Math.random() * 6);
+  public rollDice() {
+    this._currentDiceRoll = Math.ceil(Math.random() * 6);
   }
 }
