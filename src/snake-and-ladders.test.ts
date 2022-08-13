@@ -48,5 +48,18 @@ describe('Snake and Ladders', () => {
 
       expect(rolls).toSatisfyAll(roll => roll >= 1 && roll <= 6);
     });
+
+    test('Player movement is determined by dice roll', () => {
+      const player = 1;
+
+      game.rollDice();
+      const diceRoll = game.currentDiceRoll;
+      const initialPosition = game.getToken(player).position;
+
+      game.moveTokenOf(player);
+      const finalPosition = game.getToken(player).position;
+
+      expect(finalPosition - initialPosition).toBe(diceRoll);
+    });
   });
 });
