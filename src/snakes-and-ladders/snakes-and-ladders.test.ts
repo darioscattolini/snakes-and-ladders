@@ -1,11 +1,11 @@
-import { SnakeAndLadders } from './snake-and-ladders';
-import { Token } from './token';
+import { SnakesAndLadders } from './snakes-and-ladders';
+import { Token } from '../token/token';
 
 describe('Snake and Ladders', () => {
-  var game: SnakeAndLadders;
+  var game: SnakesAndLadders;
   
   beforeEach(() => {
-     game = new SnakeAndLadders();
+     game = new SnakesAndLadders();
   });
 
   describe('Winning game', () => {

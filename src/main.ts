@@ -1,7 +1,7 @@
-import { SnakeAndLadders } from "./snake-and-ladders";
+import { SnakesAndLadders } from "./snakes-and-ladders/snakes-and-ladders";
 import inquirer from 'inquirer';
 
-const game = new SnakeAndLadders();
+const game = new SnakesAndLadders();
 
 function askPlayer(message: String) {
   inquirer.prompt([{

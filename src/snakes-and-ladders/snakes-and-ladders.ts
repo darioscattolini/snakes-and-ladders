@@ -1,6 +1,6 @@
-import { Token } from "./token";
+import { Token } from "../token/token";
 
-export class SnakeAndLadders {
+export class SnakesAndLadders {
   private tokens = [new Token(1)];
   
   public get currentDiceRoll() {
