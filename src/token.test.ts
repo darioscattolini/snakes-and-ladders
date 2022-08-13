@@ -30,4 +30,15 @@ describe('Token movement across the board', () => {
     expect(token.position)
       .toBe(initialPosition + firstMovementSpaces + secondMovementSpaces);
   });
+
+  test('Token returns to previous square if it moves after 100', () => {
+    while (token.position !== 97) {
+      token.move(1);
+    }
+    
+    const previousPosition = token.position;
+    token.move(4);
+
+    expect(token.position).toBe(previousPosition);
+  });
 });

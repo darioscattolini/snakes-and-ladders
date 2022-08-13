@@ -11,34 +11,29 @@ describe('Snake and Ladders', () => {
   describe('Winning game', () => {
     var token: Token;
     var player: number;
+    const startingPosition = 97;
+    const winningPosition = 100;
 
     beforeEach(() => {
       token = game.getToken(1);
       player = token.player;
 
-      while (token.position !== 97) {
+      while (token.position !== startingPosition) {
         token.move(1);
       }
     });
 
     test('Player wins when token is moved exactly to square 100', () => {
-      token.move(3);
+      token.move(winningPosition - startingPosition);
 
-      expect(token.position).toBe(100);
+      expect(token.position).toBe(winningPosition);
       expect(game.getWinner()).toBe(player);
     });
 
     test('Player does not win if token is moved to square after 100', () => {
-      token.move(4);
+      token.move(winningPosition - startingPosition + 1);
 
       expect(game.getWinner()).toBe(-1);
-    });
-
-    test('Token returns to previous square if it moves after 100', () => {
-      const previousPosition = token.position;
-      token.move(4);
-
-      expect(token.position).toBe(previousPosition);
     });
   });
 
