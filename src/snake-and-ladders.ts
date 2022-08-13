@@ -10,6 +10,6 @@ export class SnakeAndLadders {
   }
 
   public moveToken(player: number, spaces: number) {
-    this.tokens[player] += spaces;
+    if (this.tokens[player] + spaces <= 100) this.tokens[player] += spaces;
   }
 }
