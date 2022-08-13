@@ -12,14 +12,14 @@ describe('Snake and Ladders', () => {
       expect(game.getTokenPosition(0)).toBe(1);
     });
 
-    test('Token moves once the specified amount of squares', () => {
-      const squaresToMove = 3;
-      game.moveToken(0, squaresToMove)
+    test('Token moves once the specified amount of spacs', () => {
+      const spaces = 3;
+      game.moveToken(0, spaces)
 
-      expect(game.getTokenPosition(0)).toBe(1 + squaresToMove)
+      expect(game.getTokenPosition(0)).toBe(1 + spaces)
     });
 
-    test('Token moves twice the specified amount of squares', () => {
+    test('Token moves twice the specified amount of spaces', () => {
       const firstMovementSpaces = 3;
       const secondMovementSpaces = 4;
       
