@@ -32,7 +32,7 @@ describe('Snake and Ladders', () => {
   });
 
   describe('Winning game', () => {
-    test('Player wins when tokens reach exactly square 100', () => {
+    test('Player wins when token is moved exactly to square 100', () => {
       while (game.getTokenPosition(0) !== 97) {
         game.moveToken(0, 1);
       }
