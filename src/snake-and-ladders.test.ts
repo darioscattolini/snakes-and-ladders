@@ -14,20 +14,33 @@ describe('Snake and Ladders', () => {
 
     test('Token moves once the specified amount of spacs', () => {
       const spaces = 3;
-      game.moveToken(0, spaces)
+      game.moveToken(0, spaces);
 
-      expect(game.getTokenPosition(0)).toBe(1 + spaces)
+      expect(game.getTokenPosition(0)).toBe(1 + spaces);
     });
 
     test('Token moves twice the specified amount of spaces', () => {
       const firstMovementSpaces = 3;
       const secondMovementSpaces = 4;
       
-      game.moveToken(0, firstMovementSpaces)
-      game.moveToken(0, secondMovementSpaces)
+      game.moveToken(0, firstMovementSpaces);
+      game.moveToken(0, secondMovementSpaces);
 
       expect(game.getTokenPosition(0))
-        .toBe(1 + firstMovementSpaces + secondMovementSpaces)
+        .toBe(1 + firstMovementSpaces + secondMovementSpaces);
+    });
+  });
+
+  describe('Winning game', () => {
+    test('Player wins when tokens reach exactly square 100', () => {
+      while (game.getTokenPosition(0) !== 97) {
+        game.moveToken(0, 1);
+      }
+
+      game.moveToken(0, 3);
+
+      expect(game.getTokenPosition(0)).toBe(100);
+      expect(game.getWinner()).toBe(0);
     });
   });
 });
