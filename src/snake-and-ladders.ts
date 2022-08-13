@@ -12,4 +12,8 @@ export class SnakeAndLadders {
   public moveToken(player: number, spaces: number) {
     if (this.tokens[player] + spaces <= 100) this.tokens[player] += spaces;
   }
+
+  public rollDice() {
+    return Math.ceil(Math.random() * 6);
+  }
 }
