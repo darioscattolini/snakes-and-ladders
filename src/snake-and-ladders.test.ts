@@ -4,12 +4,19 @@ describe('Snake and Ladders', () => {
   var game: SnakeAndLadders;
   
   beforeEach(() => {
-     game = new SnakeAndLadders() 
+     game = new SnakeAndLadders();
   });
   
   describe('Token movement across the board', () => {
     test('Token starts on square 1', () => {
-      expect(game.getTokenPosition(0)).toBe(1)
+      expect(game.getTokenPosition(0)).toBe(1);
+    });
+
+    test('Token moves once the specified amount of squares', () => {
+      const squaresToMove = 3;
+      game.moveToken(0, squaresToMove)
+
+      expect(game.getTokenPosition(0)).toBe(1 + squaresToMove)
     });
   });
 });
