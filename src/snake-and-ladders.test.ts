@@ -50,5 +50,12 @@ describe('Snake and Ladders', () => {
 
       expect(game.getWinner()).toBe(-1);
     });
+
+    test('Token returns to previous square if it moves after 100', () => {
+      const previousPosition = game.getTokenPosition(0);
+      game.moveToken(0, 4);
+
+      expect(game.getTokenPosition(0)).toBe(previousPosition);
+    });
   });
 });
