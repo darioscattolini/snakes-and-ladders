@@ -32,15 +32,23 @@ describe('Snake and Ladders', () => {
   });
 
   describe('Winning game', () => {
-    test('Player wins when token is moved exactly to square 100', () => {
+    beforeEach(() => {
       while (game.getTokenPosition(0) !== 97) {
         game.moveToken(0, 1);
       }
+    });
 
+    test('Player wins when token is moved exactly to square 100', () => {
       game.moveToken(0, 3);
 
       expect(game.getTokenPosition(0)).toBe(100);
       expect(game.getWinner()).toBe(0);
+    });
+
+    test('Player does not win if token is moved to square after 100', () => {
+      game.moveToken(0, 4);
+
+      expect(game.getWinner()).toBe(-1);
     });
   });
 });
